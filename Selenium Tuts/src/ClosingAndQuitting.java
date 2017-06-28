@@ -13,7 +13,10 @@ public class ClosingAndQuitting {
 		
 		driver.get("http://www.popuptest.com/popuptest2.html");
 		
-		driver.close();
+		//driver.close();
 		//This will only close the currently opened window in our case it is http://www.popuptest.com/popuptest2.html
+		
+		driver.quit();
+		//=quit() -> all windows will be closed - not just the parent one
 	}	
 }
