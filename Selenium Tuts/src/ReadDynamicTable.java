@@ -16,17 +16,12 @@ public class ReadDynamicTable {
 		
 		driver.get("http://money.rediff.com/gainers/bsc/daily/groupa");
 		
-		//List of columns
-		WebElement baseTable  = driver.findElement(By.tagName("table"));
+		List <WebElement> data = driver.findElements(By.xpath("//*[@id=\"leftcontainer\"]/table/tbody/tr"));
 		
-		//to find the 3rd row of the table
-		WebElement tablerow = baseTable.findElement(By.xpath("//*[@id='leftcontainer']/table/tbody/tr[3]"));
-		System.out.println("Row number" + tablerow.getText());
+		for (int i = 1; i < data.size(); i++) {
+			System.out.println(driver.findElement(By.xpath("//*[@id=\"leftcontainer\"]/table/tbody/tr["+i+"]")).getText());
+		}
 		
-		//to find the 2nd colum of the talbe
-		WebElement CellInneed =  baseTable.findElement(By.xpath("//*[@id=\"leftcontainer\"]/table/tbody/tr[3]/td[2]"));
-		
-		System.out.println("Data on 2nd column: "+ CellInneed.getText());
 		
 	}
 }
