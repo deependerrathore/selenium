@@ -19,7 +19,12 @@ public class ReadDynamicTable {
 		List <WebElement> data = driver.findElements(By.xpath("//*[@id=\"leftcontainer\"]/table/tbody/tr"));
 		
 		for (int i = 1; i < data.size(); i++) {
-			System.out.println(data.get(i).getText());
+			String row = data.get(i).getText();
+			
+			System.out.println(row);
+			String s2 = row.replaceAll(" ", "|");
+			System.out.println(s2);
+			System.out.println("-----------------------------------------");
 		}
 		
 		
