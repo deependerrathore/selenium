@@ -14,17 +14,19 @@ public class ReadDynamicTable {
 		
 		driver = new FirefoxDriver();
 		
-		driver.get("http://money.rediff.com/gainers/bsc/daily/groupb");
+		driver.get("http://money.rediff.com/gainers/bsc/daily/groupa");
 		
 		//List of columns
-		List <WebElement> col = driver.findElements(By.xpath(".//*[@id='leftcontainer']/table/thead/tr/th"));
+		WebElement baseTable  = driver.findElement(By.tagName("table"));
 		
-		System.out.println("Number of cols are :" + col.size());
+		//to find the 3rd row of the table
+		WebElement tablerow = baseTable.findElement(By.xpath("//*[@id='leftcontainer']/table/tbody/tr[3]"));
+		System.out.println("Row number" + tablerow.getText());
 		
-		//List of rows
-		List <WebElement> row = driver.findElements(By.xpath(".//*[@id='leftcontainer']/table/tbody/tr"));
+		//to find the 2nd colum of the talbe
+		WebElement CellInneed =  baseTable.findElement(By.xpath("//*[@id=\"leftcontainer\"]/table/tbody/tr[3]/td[2]"));
 		
-		System.out.println("Number of rows are: "+ row.size());
+		System.out.println("Data on 2nd column: "+ CellInneed.getText());
 		
 	}
 }
