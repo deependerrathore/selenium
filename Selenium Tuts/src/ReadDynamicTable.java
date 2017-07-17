@@ -19,7 +19,7 @@ public class ReadDynamicTable {
 		List <WebElement> data = driver.findElements(By.xpath("//*[@id=\"leftcontainer\"]/table/tbody/tr"));
 		
 		for (int i = 1; i < data.size(); i++) {
-			System.out.println(driver.findElement(By.xpath("//*[@id=\"leftcontainer\"]/table/tbody/tr["+i+"]")).getText());
+			System.out.println(data.get(i).getText());
 		}
 		
 		
