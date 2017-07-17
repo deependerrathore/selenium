@@ -6,18 +6,20 @@ public class SwitchingBetweenFrames {
 	
 	public static void main(String[] args) {
 		
-		WebDriver driver;
+		WebDriver dri;
 		
 		System.setProperty("webdriver.gecko.driver", "/home/deep/Downloads/geckodriver");
 		
-		driver = new FirefoxDriver();
+		dri = new FirefoxDriver();
 		
-		driver.get("http://demo.guru99.com/selenium/deprecated.html");
+		dri.get("http://demo.guru99.com/selenium/deprecated.html");
 		
-		driver.switchTo().frame("classFrame");
+		dri.switchTo().frame("classFrame");
 		
-		driver.findElement(By.linkText("Index")).click();
+		dri.findElement(By.linkText("Help")).click();
 		
-		driver.close();
+		dri.close();
+		
+		
 	}	
 }
