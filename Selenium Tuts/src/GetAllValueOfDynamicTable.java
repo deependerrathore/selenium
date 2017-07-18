@@ -14,9 +14,9 @@ public class GetAllValueOfDynamicTable {
 		
 		driver = new FirefoxDriver();
 		
-		driver.get("http://demo.guru99.com/selenium/table/");
+		driver.get("http://money.rediff.com/gainers/bsc/daily/groupa");
 		
-		WebElement mytable = driver.findElement(By.xpath("/html/body/table/tbody"));
+		WebElement mytable = driver.findElement(By.xpath("//*[@id=\"leftcontainer\"]/table/tbody"));
 		
 		//To locate rows of table
 		List <WebElement> rows_table = mytable.findElements(By.tagName("tr"));
