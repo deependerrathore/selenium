@@ -5,15 +5,15 @@ import org.testng.SkipException;
 import org.testng.annotations.Test;
 
 public class AlphabeticTestCases {
-  @Test
+  @Test(priority=1)
   public void c_test() {
 	  Assert.assertTrue(true);
   }
-  @Test
+  @Test(priority=2)
   public void a_test(){
-	  Assert.assertFalse(true);
+	  Assert.fail();
   }
-  @Test
+  @Test(priority=3)
   public void b_test(){
 	  throw new SkipException("skipping this test case...");
   }
