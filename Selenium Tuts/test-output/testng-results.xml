@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="TestSuite" duration-ms="10258" started-at="2017-07-20T14:53:01Z" finished-at="2017-07-20T14:53:11Z">
+    <groups>
+    </groups>
+    <test name="testGuru" duration-ms="10258" started-at="2017-07-20T14:53:01Z" finished-at="2017-07-20T14:53:11Z">
+      <class name="testng.selenium.ParamterizationWithTestNGXML">
+        <test-method status="PASS" signature="testParameterWithXML(java.lang.String, java.lang.String)[pri:0, instance:testng.selenium.ParamterizationWithTestNGXML@ae45eb6]" name="testParameterWithXML" duration-ms="10244" started-at="2017-07-20T20:23:01Z" finished-at="2017-07-20T20:23:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ABC]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Russia]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testParameterWithXML -->
+      </class> <!-- testng.selenium.ParamterizationWithTestNGXML -->
+    </test> <!-- testGuru -->
+  </suite> <!-- TestSuite -->
+</testng-results>
