@@ -2,11 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="TestSuite" thread-count="3">
 	<parameter name="authore" value="deepender"/>
-	<!-- <parameter name="searchKey" value="India"/> -->
+	<parameter name="searchKey" value="India"/>
 	<test name="testGuru">
-		<!-- <parameter name="searchKey" value="Uk"/> -->
+		<parameter name="searchKey" value="Uk"/>
 		<classes>
-			<class name="testng.selenium.ParamterizationWithTestNGXML"/>
+			<class name="testng.selenium.ParamterizationWithTestNGXML"></class>
 		</classes>
 	</test>
 </suite>
