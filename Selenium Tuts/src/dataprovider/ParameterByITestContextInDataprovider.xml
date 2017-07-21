@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd">
+<suite name="test-parameter">
+	<test name="testMethodA">
+		<groups>
+			<run>
+				<include name="A"/>
+			</run>
+		</groups>
+		
+		<classes>
+			<class name="dataprovider.ParameterByITestContextInDataprovider"></class>
+		</classes>
+	</test>
+	
+	<test name="testMethodB">
+		<groups>
+			<run>
+				<include name="B"/>
+			</run>
+		</groups>
+		
+		<classes>
+			<class name="dataprovider.ParameterByITestContextInDataprovider"></class>
+		</classes>
+	</test>
+</suite>
