@@ -41,7 +41,7 @@ public class ReadExcelFIle {
 	  int rowCount = demoSheet.getLastRowNum() - demoSheet.getFirstRowNum();
 	  
 	  //Create a loop over all the rows of excel file to read it
-	  for (int i = 0; i < rowCount; i++) {
+	  for (int i = 0; i < rowCount+1; i++) {
 		  Row row = demoSheet.getRow(i);
 		  //Create a loop to print cell values in a row
 		  for (int j = 0; j < row.getLastCellNum(); j++) {
@@ -62,6 +62,6 @@ public class ReadExcelFIle {
 	  //Prepare the path of excel file
 	  String filePath = System.getProperty("user.dir")+"/src/excel/";
 	  
-	  ref.readExcel(filePath, "ExcelDemoFile.xls", "Sheet1");
+	  ref.readExcel(filePath, "Exceldata.xlsx", "Sheet1");
   }
 }
