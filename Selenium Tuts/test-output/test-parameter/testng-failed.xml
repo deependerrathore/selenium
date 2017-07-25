@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [test-parameter]">
+  <test name="testMethodA(failed)">
+    <groups>
+      <run>
+        <include name="A"/>
+        <include name="B"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="dataprovider.ParameterByITestContextInDataprovider">
+        <methods>
+          <include name="setup"/>
+          <include name="testMethodA"/>
+          <include name="testMethodB" invocation-numbers="0 1 2"/>
+        </methods>
+      </class> <!-- dataprovider.ParameterByITestContextInDataprovider -->
+    </classes>
+  </test> <!-- testMethodA(failed) -->
+</suite> <!-- Failed suite [test-parameter] -->
