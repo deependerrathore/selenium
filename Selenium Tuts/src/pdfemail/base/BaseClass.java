@@ -1,0 +1,52 @@
+package pdfemail.base;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class BaseClass {
+	
+	static WebDriver driver;
+	
+	public static WebDriver getDriver() {
+		if (driver == null) {
+			System.setProperty("webdriver.gecko.driver"	, "/home/deep/Downloads/geckodriver");
+			driver = new FirefoxDriver();
+			
+		}
+		
+		return driver;
+	}
+	
+	/**
+
+     * This function will take screenshot
+
+     * @param webdriver
+
+     * @param fileWithPath
+	 * @throws IOException 
+
+     * @throws Exception
+
+     */
+	public static void takeSnapshot(WebDriver webdriver , String fileWithPath) throws IOException {
+		 //Convert web driver object to TakeScreenshot
+		TakesScreenshot scrShot = (TakesScreenshot)webdriver;
+		
+		//Call getScreenshotAs method to create image file
+		File scrFile = scrShot.getScreenshotAs(OutputType.FILE);
+		
+		//Move image file to new destination
+		File destFile = new File(fileWithPath);
+		
+
+        //Copy file at destination
+		FileUtils.copyFile(scrFile, destFile);
+	}
+}
