@@ -3,7 +3,14 @@
 <suite name="TestSuite" thread-count="3" parallel="methods">
 	<test name="testGuru">
 		<classes>
-			<class name="session.multisession.TestGuru99MultipleSession"/>
+			<class name="session.multisession.TestGuru99MultipleSession">
+			<methods>
+				<include name="executSessionOne"></include>
+				<include name="executSessionTwo"></include>
+				<include name="executSessionThree"></include>
+			</methods>
+				
+			</class>
 		</classes>
 	</test>
 </suite>

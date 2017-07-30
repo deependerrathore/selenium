@@ -6,7 +6,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 public class TestGuru99MultipleSession {
-	@Test
+	@Test(dependsOnMethods={"executSessionTwo"})
 	public void executSessionOne() {
 		//First session of WebDriver
 		System.setProperty("webdriver.gecko.driver",  "/home/deep/Downloads/geckodriver");
