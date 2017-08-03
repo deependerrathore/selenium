@@ -1,7 +1,7 @@
 package datetime;
 
 import java.util.Calendar;
-import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -16,7 +16,7 @@ public class DatePickerAdvance {
 		
 		System.setProperty("webdriver.gecko.driver", "/home/deep/Downloads/geckodriver");
 		//DAte and Time to be set in textbox
-		String dateTime = "28/08/1992 4:00 AM";
+		String dateTime = "28/08/2000 4:00 AM";
 		WebDriver driver = new FirefoxDriver();
 		
 		driver.get("http://demos.telerik.com/kendo-ui/datetimepicker/index");
@@ -55,18 +55,30 @@ public class DatePickerAdvance {
 			if (yearDiff > 0) {
 				
 				for (int i = 0; i < yearDiff; i++) {
-					System.out.println("Year Diff->"+i);
+					//System.out.println("Year Diff->"+i);
 					nextLink.click();
 				}
 			}else if(yearDiff < 0){
 				for (int i = 0; i < yearDiff*(-1); i++) {
-					System.out.println("Year Diff->"+i);
+					//System.out.println("Year Diff->"+i);
 					prevLink.click();
 				}
 			}
 			
 		
 		}
+		
+		Thread.sleep(2000);
+
+        //Get all months from calendar to select correct one
+		List <WebElement> list_AllMonthToBook = driver.findElements(By.xpath("//div[@data-role='calendar']//table//tbody//td"));
+		list_AllMonthToBook.get(Integer.parseInt(date_dd_mm_yyyy[1])-1).click();
+		Thread.sleep(2000);
+		//get all dates from calendar to select correct one
+		 List<WebElement> list_AllDateToBook = driver.findElements(By.xpath("//div[@data-role='calendar']//table//tbody//td[not(contains(@class,'k-other-month'))]"));
+		 
+		 list_AllDateToBook.get(Integer.parseInt(date_dd_mm_yyyy[0])-1).click();
+		
 		
 	}
 
