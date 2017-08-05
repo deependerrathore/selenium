@@ -10,13 +10,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
+
 public class DatePickerAdvance {
 	@Test
 	public void testDatePicker() throws InterruptedException {
 		
 		System.setProperty("webdriver.gecko.driver", "/home/deep/Downloads/geckodriver");
 		//DAte and Time to be set in textbox
-		String dateTime = "28/08/2000 4:00 AM";
+		String dateTime = "28/07/2017 4:30 PM";
 		WebDriver driver = new FirefoxDriver();
 		
 		driver.get("http://demos.telerik.com/kendo-ui/datetimepicker/index");
@@ -78,7 +79,29 @@ public class DatePickerAdvance {
 		 List<WebElement> list_AllDateToBook = driver.findElements(By.xpath("//div[@data-role='calendar']//table//tbody//td[not(contains(@class,'k-other-month'))]"));
 		 
 		 list_AllDateToBook.get(Integer.parseInt(date_dd_mm_yyyy[0])-1).click();
+		 
+		 
+		//click time picker button
+		WebElement selectTime = driver.findElement(By.xpath("//span[contains(@class,\"k-i-clock\")]"));
 		
+		selectTime.click();
+		 
+		//get list of times
+		//List <WebElement> allTime = driver.findElements(By.id("datetimepicker_timeview"));
+		List<WebElement> allTime = driver.findElements(By.xpath("//div[@data-role='popup'][contains(@style,'display: block')]//ul//li[@role='option']"));
+		
+		dateTime = dateTime.split(" ")[1]+ " "+dateTime.split(" ")[2];
+		 
+		//select correct time
+		for (WebElement webelem: allTime) {
+			System.out.println("Date on List->"+ webelem.getText());
+			System.out.println("Input date->"+dateTime);
+			if (webelem.getText().equalsIgnoreCase(dateTime)) {
+				
+				webelem.click();
+			}
+			
+		}
 		
 	}
 
