@@ -1,16 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<project default="run" name="ANTRUNTEST">
+<project default="run" name="YTMonetize" basedir=".">
+
+	<!-- Property tag will be use as variable in build.xml file to use in further steps -->
+	<property name="build.dir" value="${basedir}/build"/>
+	<property name="external.jars" value=".\resources"/>
+	<property name="ytoperation.dir" value="${external.jars}/YTOperation"/>
+	<property name="src.dir" value="${basedir}/src/testAnt"/>
+
+	<!--Target tags used as steps that will execute in sequential order. name attribute will be the name  of the target and < a name=OLE_LINK1 >'depends' attribute used to make one target to depend on another target -->
+	<target name="setClassPath">
+		<path id="classpath_jars">
+			<pathelement	path="${basedir}"/>
+		</path>
+		<pathconvert	pathsep=";" property="test.classpath" refid="classpath_jars"/>
+	</target>
+
+	<target name="clean">
+		<!--echo tag will use to print text on console-->
+		<echo message="deleting existing build directory"/>
+		<!--delete tag will clean data from given folder-->
+		<delete dir="${build.dir}"/>
+
+	</target>
+	<target name="compile" depends="clean,setClassPath">
+		<echo message="classpath:${test.classpath}"/>
+		<echo message="compiling.........."/>
+		<!--mkdir tag will create new director-->
+		<mkdir dir="${build.dir}"/>
+		<echo message="classpath:${test.classpath}"/>
+		<echo message="compiling.........."/>
+		<!--javac tag used to compile java source code and move .class files to a new folder-->
+		<javac includeantruntime="false" destdir="${build.dir}" srcdir="${src.dir}">
+			<classpath refid="classpath_jars"/>
+		</javac>
+		<!--jar tag will create jar file from .class files-->
+		<jar	destfile="${ytoperation.dir}/YTOperation.jar" basedir="${build.dir}">
+			<!--manifest tag will set your main class for execution-->
+			<manifest>
+				<attribute name="Main-Class" value="testAnt.Guru99AntClass"/>
+			</manifest>
+		</jar>
+	</target>
 
 	<target name="run" depends="compile">
-		<java classname="testAnt.Guru99AntClass">
-			<classpath path="staging" />
-		</java>
+		<!--java tag will execute main function from the jar created in compile target section-->
+		<java jar="${ytoperation.dir}/YTOperation.jar" fork="true"/>
 	</target>
-
-	<target name="compile">
-		<javac includeantruntime="false" srcdir="src/testAnt" destdir="staging"/>
-	</target>
-
-
-
 </project>
